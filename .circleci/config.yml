@@ -9,6 +9,9 @@ command:
     - test/add:
         numA: 5
         numB: 7
+jobs:
+  testdemojobs:
+    run: testdemo
 
 workflows:
   test-calc:
@@ -19,5 +22,4 @@ workflows:
           func: "ADD"
           numA: 2
           numB: 8
-      - test-demo:
-          run: testdemo
+      - testdemojobs
