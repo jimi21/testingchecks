@@ -11,8 +11,8 @@ orbs:
 #         numB: 7
 jobs:
   my-job:
-    # docker:
-    #   - image: circleci/python:3.8
+    docker:
+      - image: circleci/python:3.8
 
     steps:
       # - checkout
