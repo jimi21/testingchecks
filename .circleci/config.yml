@@ -11,16 +11,16 @@ orbs:
 #         numB: 7
 jobs:
   my-job:
-    docker:
-      - image: circleci/python:3.8
+    # docker:
+    #   - image: circleci/python:3.8
 
     steps:
-      - checkout
+      # - checkout
 
       # Calling the command from the private orb with arguments
       - test/add:
           numA: 5
-          numB: 8
+          numB: 9
 
 workflows:
   test-calc:
