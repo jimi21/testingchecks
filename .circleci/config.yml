@@ -12,4 +12,4 @@ workflows:
       - test/calc:
           func: "MUL"
           numA: 2
-          numB: 6
+          numB: 7
