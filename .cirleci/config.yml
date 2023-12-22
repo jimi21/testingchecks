@@ -1,8 +1,7 @@
 version: 2.1
 
 orbs:
-  # Replace this with your own!
-  test: jimicircleci/static-checks@0.0.1
+  static-checks: jimicircleci/static-checks@0.0.1
 
 jobs:
   my-job:
@@ -13,7 +12,7 @@ jobs:
       - checkout
 
       # Calling the command from the private orb with arguments
-      - test/add:
+      - static-checks/add:
           numA: 2
           numB: 6
 # workflows:
