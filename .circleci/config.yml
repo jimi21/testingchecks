@@ -4,12 +4,20 @@ orbs:
   # Replace this with your own!
   test: jimicircleci/static-checks@0.0.1
 
+command:
+  testdemo:
+    - test/add:
+        numA: 5
+        numB: 7
+
 workflows:
   test-calc:
     jobs:
       # Make sure to include "filters: *filters" in every test job you want to run as part of your deployment.
       # Test your orb's commands in a custom job and test your orb's jobs directly as a part of this workflow.
-      - test/add:
+      - test/calc:
           # func: "MUL"
           numA: 2
           numB: 8
+      - test-demo:
+          run: testdemo
