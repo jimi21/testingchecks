@@ -28,5 +28,4 @@ workflows:
       - fcheck/format:
           config: pyproject.toml
       - fcheck/lint:
-          path: sample_files
           config: .flake8
