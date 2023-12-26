@@ -27,6 +27,6 @@ workflows:
       # Test your orb's commands in a custom job and test your orb's jobs directly as a part of this workflow.
       - fcheck/format:
           config: pyproject.toml
-      - fcheck/lint:
-          config: .flake8
-          path: src
+      - fcheck/lint
+          # config: .flake8
+          # path: src
