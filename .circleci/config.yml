@@ -29,3 +29,4 @@ workflows:
           config: pyproject.toml
       - fcheck/lint:
           config: .flake8
+          path: src
