@@ -26,6 +26,9 @@ jobs:
 
     steps:
       - checkout
+      - run:
+          name: install flake8 command
+          command: pip install flake8
       - fcheck/lint
 
       - attach_workspace:
