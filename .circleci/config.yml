@@ -4,7 +4,8 @@ orbs:
   fcheck: jimicircleci/fcheck@dev:alpha
 
 jobs:
-  - pr-checks:
+  pr-checks:
+    steps:
       - fcheck/format
       - fcheck/lint
 
