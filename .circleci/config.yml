@@ -15,6 +15,3 @@ workflows:
               ignore: /.*/ # Ignore regular branch builds
             tags:
               ignore: /.*/ # Ignore tag builds
-            pull_requests:
-              branches:
-                - '*' # Include all branches for PRs
