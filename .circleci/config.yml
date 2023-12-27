@@ -48,6 +48,6 @@ workflows:
       - fcheck/format:
           config: pyproject.toml
       # - test-orb
-      - fcheck/lint
+      - fcheck/lint:
           config: .flake8
           # path: src
