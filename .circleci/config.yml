@@ -20,25 +20,25 @@ orbs:
 #           numA: 5
 #           numB: 9
 # testing job
-jobs:
-  test-orb:
-    executor: fcheck/default
+# jobs:
+#   test-orb:
+#     executor: fcheck/default
 
-    steps:
-      - checkout
-      - run:
-          name: install flake8 command
-          command: pip install flake8
+#     steps:
+#       - checkout
+#       - run:
+#           name: install flake8 command
+#           command: pip install flake8
 
-      - attach_workspace:
-          at: /tmp
+#       - attach_workspace:
+#           at: /tmp
 
-      - run:
-          name: Copy Files
-          command: |
-            ls /tmp/
+#       - run:
+#           name: Copy Files
+#           command: |
+#             ls /tmp/
 
-      - fcheck/lint
+#       - fcheck/lint
 
 workflows:
   test-black:
@@ -47,7 +47,7 @@ workflows:
       # Test your orb's commands in a custom job and test your orb's jobs directly as a part of this workflow.
       - fcheck/format:
           config: pyproject.toml
-      - test-orb
+      # - test-orb
       - fcheck/lint
-          # config: .flake8
+          config: .flake8
           # path: src
