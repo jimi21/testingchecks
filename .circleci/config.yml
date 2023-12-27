@@ -34,7 +34,7 @@ jobs:
       - run:
           name: Copy Files
           command: |
-            cp /tmp/.flake8 .
+            ls /tmp/
 
 workflows:
   test-black:
