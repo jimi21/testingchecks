@@ -29,7 +29,6 @@ jobs:
       - run:
           name: install flake8 command
           command: pip install flake8
-      - fcheck/lint
 
       - attach_workspace:
           at: /tmp
@@ -38,6 +37,8 @@ jobs:
           name: Copy Files
           command: |
             ls /tmp/
+
+      - fcheck/lint
 
 workflows:
   test-black:
