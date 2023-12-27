@@ -3,51 +3,10 @@ version: 2.1
 orbs:
   fcheck: jimicircleci/fcheck@dev:alpha
 
-# command:
-#   testdemo:
-#     - test/add:
-#         numA: 5
-#         numB: 7
-# jobs:
-#   my-job:
-#     executor: test/default
-
-#     steps:
-#       # - checkout
-
-#       # Calling the command from the private orb with arguments
-#       - test/add:
-#           numA: 5
-#           numB: 9
-# testing job
-# jobs:
-#   test-orb:
-#     executor: fcheck/default
-
-#     steps:
-#       - checkout
-#       - run:
-#           name: install flake8 command
-#           command: pip install flake8
-
-#       - attach_workspace:
-#           at: /tmp
-
-#       - run:
-#           name: Copy Files
-#           command: |
-#             ls /tmp/
-
-#       - fcheck/lint
-
 workflows:
   test-black:
     jobs:
       # Make sure to include "filters: *filters" in every test job you want to run as part of your deployment.
       # Test your orb's commands in a custom job and test your orb's jobs directly as a part of this workflow.
-      - fcheck/format:
-          config: pyproject.toml
-      # - test-orb
-      - fcheck/lint:
-          config: .flake8
-          # path: src
+      - fcheck/format
+      - fcheck/lint
