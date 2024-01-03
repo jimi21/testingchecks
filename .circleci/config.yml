@@ -11,6 +11,6 @@ workflows:
       - fcheck/lint
       - fcheck/mypy
       - fcheck/pip:
-          username: $USERNAME
+          username: ${USERNAME}
           password: $PASSWORD
           context: static-checks
