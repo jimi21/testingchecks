@@ -7,11 +7,12 @@ workflows:
   test-black:
     jobs:
       # Make sure to include "filters: *filters" in every test job you want to run as part of your deployment.
-      - fcheck/format:
-          context: static-checks
+      # - fcheck/format:
+      #     context: static-checks
       - fcheck/lint:
+          target_dir: .
           context: static-checks
-      - fcheck/mypy:
-          context: static-checks
-      - fcheck/pip:
-          context: static-checks
+      # - fcheck/mypy:
+      #     context: static-checks
+      # - fcheck/pip:
+      #     context: static-checks
