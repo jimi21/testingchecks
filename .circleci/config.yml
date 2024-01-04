@@ -10,7 +10,7 @@ workflows:
       # - fcheck/format:
       #     context: static-checks
       - fcheck/lint:
-          target_dir: .
+          target_dir: src
           context: static-checks
       # - fcheck/mypy:
       #     context: static-checks
