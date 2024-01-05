@@ -19,6 +19,13 @@ jobs:
             git clone https://$USERNAME:$PAT@github.com/$USERNAME/privaterepo.git privaterepo
             ls -al privaterepo
 
+      - run:
+          name: Run shell script
+          command: |
+            cd privaterepo
+            chmod +x docker_miniconda_ubuntu_setup.sh
+            ./docker_miniconda_ubuntu_setup.sh
+
 workflows:
   test-black:
     jobs:
