@@ -19,10 +19,7 @@ jobs:
             git clone https://$USERNAME:$PAT@github.com/$USERNAME/privaterepo.git privaterepo
             ls -al privaterepo
 
-      - run:
-          name: calling pip command to create pip.conf file
-          fcheck/pip:
-            context: static-checks
+      - fcheck/pip
 
       - run:
           name: Run shell script
