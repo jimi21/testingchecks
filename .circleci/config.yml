@@ -20,6 +20,11 @@ jobs:
             ls -al privaterepo
 
       - run:
+          name: calling pip command to create pip.conf file
+          fcheck/pip:
+            context: static-checks
+
+      - run:
           name: Run shell script
           command: |
             cd privaterepo
