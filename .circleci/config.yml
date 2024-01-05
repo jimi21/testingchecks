@@ -19,8 +19,7 @@ jobs:
             git clone https://$USERNAME:$PAT@github.com/$USERNAME/privaterepo.git privaterepo
             ls -al privaterepo
 
-      - fcheck/pip:
-          context: static-checks
+      - fcheck/pip
 
       - run:
           name: Run shell script
@@ -36,7 +35,9 @@ workflows:
       - fcheck/pip:
           context: static-checks
       - clone_private_repo:
-          context: github-cred
+          context:
+            - github-cred
+            - static-checks
           requires:
            - fcheck/pip
       # Make sure to include "filters: *filters" in every test job you want to run as part of your deployment.
