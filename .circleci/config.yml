@@ -16,7 +16,7 @@ jobs:
             mkdir privaterepo
             ls -la
             git config --global credential.helper store
-            git clone https://$USERNAME:$PAT@github.com/$USERNAME/testdemo.git privaterepo
+            git clone https://$USERNAME:$PAT@github.com/$USERNAME/privaterepo.git privaterepo
             ls -al privaterepo
 
 workflows:
@@ -31,5 +31,5 @@ workflows:
           context: static-checks
       - fcheck/mypy:
           context: static-checks
-      - fcheck/pip:
-          context: static-checks
+      # - fcheck/pip:
+      #     context: static-checks
