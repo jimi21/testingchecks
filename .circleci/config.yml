@@ -24,6 +24,7 @@ jobs:
           command: |
             cd privaterepo
             chmod +x docker_miniconda_ubuntu_setup.sh
+            echo running script...
             ./docker_miniconda_ubuntu_setup.sh
 
 workflows:
