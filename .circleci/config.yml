@@ -18,7 +18,8 @@ jobs:
           command: |
             # docker --version
             # cat /etc/os-release
-            bash /app/script.sh black
+            cd /app
+            bash script.sh black
             # docker run --rm --volume $PWD:/src shahidraza962/python-code-checks:2 black
             # docker run --rm --volume $PWD:/src shahidraza962/python-code-checks:2 isort
 
