@@ -9,7 +9,7 @@ jobs:
       # - image: circleci/python:3.9
       # - image: cimg/base:stable
       - image: shahidraza962/python-code-checks:2
-    working_directory: ~/app
+    working_directory: /app
     steps:
       - checkout:
           path: /src
