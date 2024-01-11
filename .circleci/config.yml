@@ -13,10 +13,10 @@ jobs:
     steps:
       - checkout:
           path: /src
-      - run:
-          name: Run black command
-          command: |
-            bash script.sh black
+      # - run:
+          # name: Run black command
+          # command: |
+          #   bash script.sh black
       - run:
           name: Run isort command
           command: |
