@@ -7,7 +7,7 @@ jobs:
   clone_private_repo:
     docker:
       # - image: circleci/python:3.9
-      - image: shahidraza962/python-code-checks:2
+      - image: alpine:3.19.0
     steps:
       - checkout
 
@@ -37,7 +37,7 @@ jobs:
       #       ./docker_miniconda_ubuntu_setup.sh
 
 workflows:
-  test-black:
+  static-checks:
     jobs:
       # - fcheck/pip:
       #     context: static-checks
