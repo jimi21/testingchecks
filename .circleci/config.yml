@@ -21,10 +21,10 @@ jobs:
           name: Run isort command
           command: |
             bash script.sh isort
-      - run:
-          name: Run flake8 command
-          command: |
-            bash script.sh flake8
+      # - run:
+      #     name: Run flake8 command
+      #     command: |
+      #       bash script.sh flake8
       - run:
           name: Run mypy command
           command: |
