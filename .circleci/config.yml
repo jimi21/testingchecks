@@ -20,6 +20,9 @@ jobs:
             # cat /etc/os-release
             cd /app
             bash script.sh black
+            bash script.sh isort
+            bash script.sh flake8
+            bash script.sh mypy
             # docker run --rm --volume $PWD:/src shahidraza962/python-code-checks:2 black
             # docker run --rm --volume $PWD:/src shahidraza962/python-code-checks:2 isort
 
