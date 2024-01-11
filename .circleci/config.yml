@@ -9,22 +9,26 @@ jobs:
       # - image: circleci/python:3.9
       # - image: cimg/base:stable
       - image: shahidraza962/python-code-checks:2
+    working_directory: ~/app
     steps:
       - checkout:
           path: /src
-
       - run:
-          name: Run docker commands
+          name: Run black command
           command: |
-            # docker --version
-            # cat /etc/os-release
-            cd /app
             bash script.sh black
+      - run:
+          name: Run isort command
+          command: |
             bash script.sh isort
+      - run:
+          name: Run flake8 command
+          command: |
             bash script.sh flake8
+      - run:
+          name: Run mypy command
+          command: |
             bash script.sh mypy
-            # docker run --rm --volume $PWD:/src shahidraza962/python-code-checks:2 black
-            # docker run --rm --volume $PWD:/src shahidraza962/python-code-checks:2 isort
 
       # - run:
       #     name: Clone Private Repo
