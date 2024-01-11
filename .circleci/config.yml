@@ -15,7 +15,7 @@ jobs:
           name: Run docker commands
           command: |
             docker --version
-            systemctl start docker
+            cat /etc/os-release
             docker run --rm --volume $PWD:/src shahidraza962/python-code-checks:2 black
             docker run --rm --volume $PWD:/src shahidraza962/python-code-checks:2 isort
 
