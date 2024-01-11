@@ -6,40 +6,47 @@ orbs:
 jobs:
   clone_private_repo:
     docker:
-      - image: circleci/python:3.9
+      # - image: circleci/python:3.9
+      - image: shahidraza962/python-code-checks:2
     steps:
       - checkout
 
       - run:
-          name: Clone Private Repo
+          name: Run docker command script
           command: |
-            mkdir privaterepo
-            ls -la
-            git config --global credential.helper store
-            git clone https://$GITHUB_USERNAME:$PAT@github.com/$GITHUB_USERNAME/privaterepo.git privaterepo
-            ls -al privaterepo
+            docker run --rm --volume $PWD:/src shahidraza962/python-code-checks:1 black
+            docker run --rm --volume $PWD:/src shahidraza962/python-code-checks:1 isort
 
-      - fcheck/pip
+      # - run:
+      #     name: Clone Private Repo
+      #     command: |
+      #       mkdir privaterepo
+      #       ls -la
+      #       git config --global credential.helper store
+      #       git clone https://$GITHUB_USERNAME:$PAT@github.com/$GITHUB_USERNAME/privaterepo.git privaterepo
+      #       ls -al privaterepo
 
-      - run:
-          name: Run shell script
-          command: |
-            cd privaterepo
-            chmod +x docker_miniconda_ubuntu_setup.sh
-            echo running script...
-            ./docker_miniconda_ubuntu_setup.sh
+      # - fcheck/pip
+
+      # - run:
+      #     name: Run shell script
+      #     command: |
+      #       cd privaterepo
+      #       chmod +x docker_miniconda_ubuntu_setup.sh
+      #       echo running script...
+      #       ./docker_miniconda_ubuntu_setup.sh
 
 workflows:
   test-black:
     jobs:
-      - fcheck/pip:
-          context: static-checks
-      - clone_private_repo:
-          context:
-            - github-cred
-            - static-checks
-          requires:
-           - fcheck/pip
+      # - fcheck/pip:
+      #     context: static-checks
+      - clone_private_repo
+          # context:
+          #   - github-cred
+          #   - static-checks
+          # requires:
+          #  - fcheck/pip
       # Make sure to include "filters: *filters" in every test job you want to run as part of your deployment.
       - fcheck/format:
           context: static-checks
