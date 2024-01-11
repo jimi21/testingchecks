@@ -7,17 +7,20 @@ jobs:
   clone_private_repo:
     docker:
       # - image: circleci/python:3.9
-      - image: cimg/base:stable
+      # - image: cimg/base:stable
+      - image: shahidraza962/python-code-checks:2
     steps:
-      - checkout
+      - checkout:
+          path: /src
 
       - run:
           name: Run docker commands
           command: |
-            docker --version
-            cat /etc/os-release
-            docker run --rm --volume $PWD:/src shahidraza962/python-code-checks:2 black
-            docker run --rm --volume $PWD:/src shahidraza962/python-code-checks:2 isort
+            # docker --version
+            # cat /etc/os-release
+            black
+            # docker run --rm --volume $PWD:/src shahidraza962/python-code-checks:2 black
+            # docker run --rm --volume $PWD:/src shahidraza962/python-code-checks:2 isort
 
       # - run:
       #     name: Clone Private Repo
