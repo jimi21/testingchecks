@@ -7,14 +7,14 @@ jobs:
   clone_private_repo:
     docker:
       # - image: circleci/python:3.9
-      - image: alpine:3.19.0
+      - image: shahidraza962/python-code-checks:2
     steps:
       - checkout
 
       - run:
           name: Run docker command script
           command: |
-            docker run --rm --volume $PWD:/src shahidraza962/python-code-checks:1 black
+            docker run --rm --volume $PWD:/src --volume /var/run/docker.sock:/var/run/docker.sock shahidraza962/python-code-checks:1 black
             docker run --rm --volume $PWD:/src shahidraza962/python-code-checks:1 isort
 
       # - run:
